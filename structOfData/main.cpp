@@ -13,23 +13,20 @@
 # include "ClassBinaryTree.hpp"
 # include <time.h>
 
-void test(int32_t *data, float metadata)
+void test(int32_t &data)
 {
-	if (metadata > 1.0f)
-		*data *= 3;
-	else
-		*data *= 2;
+	data *= 2;
 }
 
 int	main(int argc, char **argv)
 {
-	BinaryTree<int32_t, float>	tree(25);
+	BinaryTree<int32_t>	tree(25);
 
 	srand(time(nullptr));
 
 	for (int i = 0; i < 30; ++i)
 		tree.push(rand() % 50);
 
-	std::cout << tree;
+	tree.print();
 	return (0);
 }
